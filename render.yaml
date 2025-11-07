@@ -1,9 +1,17 @@
 services:
   - type: web
-    name: colegio-app
+    name: colegio
     env: java
     buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/*.jar --spring.profiles.active=prod
+    startCommand: java -jar target/colegio-0.0.1-SNAPSHOT.jar
+    plan: free
+    region: oregon
     envVars:
-      - key: DB_PASSWORD
-        sync: false
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DATABASE_URL
+        value: jdbc:mysql://mysql-felipeapp.alwaysdata.net:3306/felipeapp_bd1
+      - key: DATABASE_USERNAME
+        value: felipeapp
+      - key: DATABASE_PASSWORD
+        value: Felipe10102005
