@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: colegio-app
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/*.jar --spring.profiles.active=prod
+    envVars:
+      - key: DB_PASSWORD
+        sync: false
