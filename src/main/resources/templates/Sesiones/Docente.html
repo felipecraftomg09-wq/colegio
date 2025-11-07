@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel Docente - Colegio Ejemplar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/alumno.css"> 
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" th:href="@{/docente}">
+        <img th:src="@{/multimedia/logo-colegio.png}" alt="logo" width="50" class="me-3">
+        Docente - Colegio Ejemplar
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" th:href="@{/docente}">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" th:href="@{/perfil-docente}">Perfil</a></li>
+          <li class="nav-item"><a class="nav-link" th:href="@{/login}">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BIENVENIDA -->
+  <div class="container my-5 text-center">
+    <h2 class="mb-3">👨‍🏫 Bienvenido, <span th:text="${docente.nombre}">Docente</span></h2>
+    <p class="text-muted fs-5">Panel de control del docente - Colegio Ejemplar</p>
+  </div>
+
+  
+  <!-- SECCIÓN DE REPORTES -->
+  <div class="container mb-5">
+    <h3 class="text-center mb-4">Reportes</h3>
+    <div class="list-group shadow-sm">
+      <a th:href="@{/reporte/notas}" class="list-group-item list-group-item-action">📄 Reporte de Notas</a>
+      <a th:href="@{/reporte/asistencia}" class="list-group-item list-group-item-action">📄 Reporte de Asistencia</a>
+      <a th:href="@{/reporte/desempeno}" class="list-group-item list-group-item-action">📄 Reporte de Desempeño</a>
+    </div>
+  </div>
+
+  <!-- SECCIÓN DE ALUMNOS -->
+  <div class="container my-5">
+    <h3 class="text-center mb-4">Lista General de Alumnos</h3>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered text-center align-middle shadow-sm">
+        <thead class="table-primary">
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Grado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="alumno, iterStat : ${alumnos}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${alumno.nombre}"></td>
+            <td th:text="${alumno.apellido}"></td>
+            <td th:text="${alumno.grado}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

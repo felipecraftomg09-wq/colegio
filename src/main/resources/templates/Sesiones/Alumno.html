@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Alumno - Colegio Ejemplar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/alumno.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="Alumno.html">
+            <img src="../multimedia/logo-colegio.png" alt="logo" width="50" class="me-3">
+            Alumno - Colegio Ejemplar
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" th:href="@{/alumno}">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/perfil}">Perfil</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/login}">Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Contenido principal -->
+    <div class="container my-5">
+      <h2 class="text-center mb-4">Mi Horario</h2>
+
+      <!-- Tabla de horarios -->
+      <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle shadow-sm">
+          <thead class="table-primary">
+            <tr>
+              <th>Hora</th>
+              <th>Lunes</th>
+              <th>Martes</th>
+              <th>Miércoles</th>
+              <th>Jueves</th>
+              <th>Viernes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>08:00 - 10:00</td>
+              <td>Matemáticas</td>
+              <td></td>
+              <td>Historia</td>
+              <td></td>
+              <td>Comunicación</td>
+            </tr>
+            <tr>
+              <td>10:00 - 12:00</td>
+              <td></td>
+              <td>Ciencias</td>
+              <td></td>
+              <td>Inglés</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>14:00 - 16:00</td>
+              <td>Educación Física</td>
+              <td></td>
+              <td>Matemáticas</td>
+              <td></td>
+              <td>Ciencias</td>
+            </tr>
+            <tr>
+              <td>16:00 - 18:00</td>
+              <td></td>
+              <td>Historia</td>
+              <td></td>
+              <td>Comunicación</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="container my-5">
+        <!-- Sección de cursos -->
+      <h2 class="mb-4 text-center mt-5">Mis Cursos</h2>
+
+      <div class="row g-4">
+        <!-- Curso 1 -->
+        <div class="col-md-6">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h4 class="card-title">📘 Matemáticas</h4>
+              <p class="text-muted">Docente: Ing. Carlos Ramírez</p>
+              <p>Curso de matemáticas básicas y avanzadas para fortalecer el razonamiento lógico.</p>
+              <p><strong>Próxima tarea:</strong> Resolver ejercicios de álgebra (05/09)</p>
+              <div class="mb-3">
+                <label class="form-label">Progreso del curso:</label>
+                <div class="progress">
+                  <div class="progress-bar bg-success" style="width: 60%;">60%</div>
+                </div>
+              </div>
+              <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalMatematicas">
+                Ingresar al curso
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 2 -->
+        <div class="col-md-6">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h4 class="card-title">📝 Comunicación</h4>
+              <p class="text-muted">Docente: Lic. María López</p>
+              <p>Curso de redacción, ortografía y comprensión lectora.</p>
+              <p><strong>Próxima tarea:</strong> Ensayo sobre cuento peruano (06/09)</p>
+              <div class="mb-3">
+                <label class="form-label">Progreso del curso:</label>
+                <div class="progress">
+                  <div class="progress-bar bg-info" style="width: 45%;">45%</div>
+                </div>
+              </div>
+              <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalComunicacion">
+                Ingresar al curso
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 3 -->
+        <div class="col-md-6">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h4 class="card-title">📚 Historia</h4>
+              <p class="text-muted">Docente: Mg. Julio Torres</p>
+              <p>Curso de historia del Perú y del mundo, con énfasis en análisis crítico.</p>
+              <p><strong>Próxima tarea:</strong> Ensayo sobre la independencia (08/09)</p>
+              <div class="mb-3">
+                <label class="form-label">Progreso del curso:</label>
+                <div class="progress">
+                  <div class="progress-bar bg-warning" style="width: 30%;">30%</div>
+                </div>
+              </div>
+              <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalHistoria">
+                Ingresar al curso
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 4 -->
+        <div class="col-md-6">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h4 class="card-title">🔬 Ciencias</h4>
+              <p class="text-muted">Docente: Dr. Ana Fernández</p>
+              <p>Curso de física, química y biología integradas con experimentos prácticos.</p>
+              <p><strong>Próxima tarea:</strong> Informe de laboratorio (09/09)</p>
+              <div class="mb-3">
+                <label class="form-label">Progreso del curso:</label>
+                <div class="progress">
+                  <div class="progress-bar bg-danger" style="width: 75%;">75%</div>
+                </div>
+              </div>
+              <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalCiencias">
+                Ingresar al curso
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Matemáticas -->
+    <div class="modal fade" id="modalMatematicas" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">Tareas pendientes - Matemáticas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="list-group">
+              <li class="list-group-item">📘 Resolver ejercicios de álgebra</li>
+              <li class="list-group-item">📘 Práctica de geometría</li>
+              <li class="list-group-item">📘 Quiz online - Trigonometría</li>
+            </ul>
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NUEVA SECCIÓN: Lista de Docentes -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Lista de Docentes</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered text-center align-middle shadow-sm">
+                <thead class="table-primary">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Asignatura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="docente, iterStat : ${docentes}">
+                        <td th:text="${iterStat.count}"></td>
+                        <td th:text="${docente.nombre}"></td>
+                        <td th:text="${docente.apellido}"></td>
+                        <td th:text="${docente.especialidad}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
